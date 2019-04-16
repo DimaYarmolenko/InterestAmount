@@ -17,7 +17,7 @@ namespace InterestAmount
 
         private float CalculatePaymentAmount(float principal, float rate, int payments)
         {
-            return (FastPow(1 + rate, payments) - 1) / (rate * FastPow(1 + rate, payments));
+            return principal / ((FastPow(1 + rate, payments) - 1) / (rate * FastPow(1 + rate, payments)));
         }
 
         static float FastPow(float num, int exp)

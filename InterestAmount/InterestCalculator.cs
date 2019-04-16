@@ -19,7 +19,7 @@ namespace InterestAmount
             //payments qty between calc date and agreement date
             var paymentsInRange = (calculationDate - agreementDate).Days / 30;
             var sum = 0f;
-
+            Console.WriteLine("Month\t\tBalance\t\tRepayment\t\tInterest\t\tPrincipal Paid\t\tNew Balance");
             for (int i = 0; i < helper.Payments; i++)
             {
                 if (i >= paymentsInRange - 1)
@@ -27,7 +27,10 @@ namespace InterestAmount
                     return sum;
                 }
                 var interest = CalculatePaymentInterest(principal, helper.Rate);
-                principal -= helper.PaymentAmount - interest;
+                sum += interest;
+                
+                Console.WriteLine("{0}\t\t{1}\t\t{2}\t\t{3}\t\t{4}\t\t{5}", i,principal,helper.PaymentAmount,interest, helper.PaymentAmount - interest, principal - (helper.PaymentAmount + interest));
+                principal -= helper.PaymentAmount + interest;
             }
             return sum;
         }

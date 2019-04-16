@@ -10,11 +10,9 @@ namespace InterestAmount
     {
         static void Main(string[] args)
         {
-            var start = new DateTime(2000, 1, 12);
-            var end = new DateTime(2002, 4, 12);
-
-            var diff = end - start;
-            Console.WriteLine(diff.Days);
+            var start = new DateTime(2000, 1, 1);
+            var end = new DateTime(2006, 1, 1);
+            Console.WriteLine(InterestCalculator.InterestSum(start,end,30000f,8.4f,6));
         }
     }
 }
