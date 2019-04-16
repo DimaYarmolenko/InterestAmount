@@ -14,6 +14,8 @@ namespace InterestAmount
             {
                 throw new InvalidDataRangeException(agreementDate,calculationDate);
             }
+
+            var hepler = new InterestCalculatorHelper(principal, rate, years);
             throw new NotImplementedException();
         }
     }

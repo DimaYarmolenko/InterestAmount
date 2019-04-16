@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InterestCalculator.cs" />
+    <Compile Include="InterestCalculatorHelper.cs" />
     <Compile Include="InvalidDataRangeException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
