@@ -12,5 +12,9 @@
             this.rate = rate;
             this.years = years;
         }
+
+        public int Payments { get; internal set; }
+        public float Rate { get; internal set; }
+        public float PaymentAmount { get; internal set; }
     }
 }

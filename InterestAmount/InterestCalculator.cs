@@ -15,8 +15,26 @@ namespace InterestAmount
                 throw new InvalidDataRangeException(agreementDate,calculationDate);
             }
 
-            var hepler = new InterestCalculatorHelper(principal, rate, years);
-            throw new NotImplementedException();
+            var helper = new InterestCalculatorHelper(principal, rate, years);
+            //payments qty between calc date and agreement date
+            var paymentsInRange = (calculationDate - agreementDate).Days / 30;
+            var sum = 0f;
+
+            for (int i = 0; i < helper.Payments; i++)
+            {
+                if (i >= paymentsInRange - 1)
+                {
+                    return sum;
+                }
+                var interest = CalculatePaymentInterest(principal, helper.Rate);
+                principal -= helper.PaymentAmount - interest;
+            }
+            return sum;
+        }
+
+        private static float CalculatePaymentInterest(float principal, float rate)
+        {
+            return principal * rate;
         }
     }
 }
