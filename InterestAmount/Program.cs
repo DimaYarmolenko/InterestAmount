@@ -10,6 +10,7 @@ namespace InterestAmount
     {
         static void Main(string[] args)
         {
+            
         }
     }
 }
