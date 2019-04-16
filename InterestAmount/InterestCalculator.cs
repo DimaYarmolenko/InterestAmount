@@ -15,7 +15,7 @@ namespace InterestAmount
                 throw new InvalidDataRangeException(agreementDate,calculationDate);
             }
 
-            var helper = new InterestCalculatorHelper(principal, rate, years);
+            var helper = new InterestCalculatorHelper(principal, rate, years, 12);
             //payments qty between calc date and agreement date
             var paymentsInRange = (calculationDate - agreementDate).Days / 30;
             var sum = 0f;
