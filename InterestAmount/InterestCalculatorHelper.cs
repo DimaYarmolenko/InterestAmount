@@ -1,7 +1,8 @@
 ﻿using System;
 
 namespace InterestAmount
-{
+{   
+    //helper class to store payments quantity, rate per conversion period, payment amount
     internal class InterestCalculatorHelper
     {
         public int Payments { get; private set; }
@@ -15,6 +16,7 @@ namespace InterestAmount
             this.PaymentAmount = CalculatePaymentAmount(principal, Rate, Payments);
         }
 
+        //P = A / (((1 + i) ^ n - 1) / (i * (1 + i) ^ n))
         private float CalculatePaymentAmount(float principal, float rate, int payments)
         {
             return principal / ((FastPow(1 + rate, payments) - 1) / (rate * FastPow(1 + rate, payments)));
